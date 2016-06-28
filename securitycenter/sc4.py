@@ -3,10 +3,27 @@
 # SecurityCenter 4, the 4.x API code will be depricated out.              #
 ###########################################################################
 from datetime import date, datetime, timedelta
-import os, sys, ssl, random, httplib, logging, mimetypes, urllib2, calendar
-from StringIO import StringIO
-from urllib import urlencode
-from urllib2 import urlopen, Request
+import os, sys, ssl, random, logging, mimetypes, calendar
+try:
+    import urllib2
+except:
+    import urllib.request, urllib.error, urllib.parse # Python3
+try:
+    import httplib
+except ImportError:
+    import http.client as httplib # Python3
+try:
+    from urllib2 import urlopen, Request 
+except ImportError:
+    from urllib.request import urlopen, Request # Python3
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO # Python3
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode # Python3
 from zipfile import ZipFile
 from .base import APIError
 
