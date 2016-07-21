@@ -43,6 +43,12 @@ Filters always exist at the front of the call, and multiple can exist in the sam
 details = sc.analysis(('ip', '=', '10.10.0.0/16'), ('pluginID', '=', '20811'), tool='vulndetails')
 ````
 
+To send multiple values, use a comma delimited string:
+
+````
+details = sc.analysis(('ip', '=', '10.10.0.0/16'), ('severity', '=', '3,4'), tool='vulndetails')
+````
+
 For more information as to whats possible, please see the [Tenable API documentation][apidocs].  Further, there are cases where forcibly sending a bad call (such as an analysis call without a tool) will let you know what can be done.
 
 [apidocs]: https://support.tenable.com/support-center/cerberus-support-center/includes/widgets/sc_api/index.html
