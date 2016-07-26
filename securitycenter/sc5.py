@@ -15,14 +15,14 @@ class SecurityCenter5(BaseAPI):
         at: https://support.tenable.com/support-center/cerberus-support-center/includes/widgets/sc_api/index.html
         '''
         BaseAPI.__init__(self, host, port, ssl_verify, scheme, log)
-        d = self.get('system').json()
-        try:
-            self.version = d['response']['version']
-            self.build_id = d['response']['buildID']
-            self.license = d['response']['licenseStatus']
-            self.uuid = d['response']['uuid']
-        except:
-            raise APIError(404, 'Invalid SecurityCenter Instance')
+        # d = self.get('system').json()
+        # try:
+        #     self.version = d['response']['version']
+        #     self.build_id = d['response']['buildID']
+        #     self.license = d['response']['licenseStatus']
+        #     self.uuid = d['response']['uuid']
+        # except:
+        #     raise APIError(404, 'Invalid SecurityCenter Instance')
 
     def _resp_error_check(self, response):
         try:
